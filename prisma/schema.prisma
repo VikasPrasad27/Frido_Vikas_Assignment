@@ -1,0 +1,73 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum RequestStatus {
+  OPEN
+  IN_REVIEW
+  APPROVED
+  REJECTED
+  COMPLETED
+}
+
+enum ReturnReason {
+  DAMAGED
+  WRONG_ITEM
+  SIZE_ISSUE
+  NOT_AS_DESCRIBED
+  CHANGED_MIND
+}
+
+enum ResolutionType {
+  REFUND
+  REPLACEMENT
+  STORE_CREDIT
+}
+
+model ReturnRequest {
+  id            String          @id @default(uuid()) @db.Uuid
+  reference     String          @unique @db.VarChar(32)
+  customerName  String          @map("customer_name") @db.VarChar(255)
+  customerEmail String          @map("customer_email") @db.VarChar(255)
+  customerPhone String?         @map("customer_phone") @db.VarChar(50)
+  orderId       String          @map("order_id") @db.VarChar(100)
+  itemSku       String          @map("item_sku") @db.VarChar(100)
+  itemName      String          @map("item_name") @db.VarChar(255)
+  quantity      Int             @db.Integer
+  reason        ReturnReason
+  status        RequestStatus   @default(OPEN)
+  
+  resolution    ResolutionType?
+  refundAmount  Decimal?        @map("refund_amount") @db.Decimal(10, 2)
+
+  createdAt     DateTime        @default(now()) @map("created_at")
+  updatedAt     DateTime        @updatedAt @map("updated_at")
+  deletedAt     DateTime?       @map("deleted_at")
+
+  notes         Note[]
+
+  @@index([customerName, customerEmail])
+  @@index([orderId])
+  @@index([reference])
+  @@index([status, reason])
+  @@index([createdAt(sort: Desc)])
+  @@map("requests")
+}
+
+model Note {
+  id          String        @id @default(uuid()) @db.Uuid
+  requestId   String        @map("request_id") @db.Uuid
+  authorName  String        @default("Support Agent") @map("author_name") @db.VarChar(255)
+  content     String        @db.Text
+  createdAt   DateTime      @default(now()) @map("created_at")
+
+  request     ReturnRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+
+  @@index([requestId, createdAt(sort: Asc)])
+  @@map("notes")
+}
