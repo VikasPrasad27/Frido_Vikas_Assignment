@@ -194,3 +194,16 @@ All business rules are enforced server-side in `src/lib/services/returnService.j
 | **Seed Data ($\ge 30$ requests)** | ✅ Yes | ✅ Yes | 32 realistic requests spanning all 5 statuses and reasons |
 | **Automated Tests** | ✅ Yes | ✅ Yes | 38/38 tests passing in Vitest |
 | **Responsive UI ($\ge 375$px)** | ✅ Yes | ✅ 
+
+---
+
+## Preview
+
+![ReturnDesk Dashboard](./docs/screenshots/dashboard.png)
+
+![ReturnDesk Manage Order](./docs/screenshots/manage.png)
+
+![ReturnDesk Raise Request](./docs/screenshots/raise.png)
+
+![ReturnDesk Approve Request](./docs/screenshots/approve.png)
+
