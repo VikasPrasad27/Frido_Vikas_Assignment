@@ -199,11 +199,19 @@ All business rules are enforced server-side in `src/lib/services/returnService.j
 
 ## Preview
 
+### ReturnDesk Dashboard
 ![ReturnDesk Dashboard](./docs/screenshots/dashboard.png)
 
+### ReturnDesk Manage Order
 ![ReturnDesk Manage Order](./docs/screenshots/manage.png)
 
+### ReturnDesk Raise Request
 ![ReturnDesk Raise Request](./docs/screenshots/raise.png)
 
+### ReturnDesk Approve Request
 ![ReturnDesk Approve Request](./docs/screenshots/approve.png)
+
+## Rough Hours Actually Spent
+
+# Total : ~ 7-8 hours
 
