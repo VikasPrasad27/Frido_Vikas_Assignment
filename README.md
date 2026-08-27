@@ -25,7 +25,7 @@ A full-stack returns desk and customer support management portal built for onlin
 
 ### 2. Installation
 ```bash
-git clone <repository-url>
+git clone https://github.com/VikasPrasad27/Frido_Vikas_Assignment.git
 cd Frido_Vikas_Assignment
 npm install
 ```
