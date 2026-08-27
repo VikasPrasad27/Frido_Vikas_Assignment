@@ -60,7 +60,7 @@ The project uses Next.js App Router with a centralized Domain/Service layer sepa
 │   │       │   ├── stats/route.js    # GET (dashboard counter metrics)
 │   │       │   └── [id]/
 │   │       │       ├── route.js      # GET (detail), PATCH (edit), DELETE (soft remove)
-│   │       │       ├── status/route.js # POST (lifecycle state transition)
+│   │       │       ├── transition/route.js # POST (lifecycle state transition)
 │   │       │       └── notes/route.js  # GET (notes list), POST (append note)
 │   ├── lib/
 │   │   ├── db.js                     # PrismaClient singleton with connection pooling
