@@ -16,9 +16,6 @@
     "db:migrate": "prisma migrate dev",
     "db:seed": "node prisma/seed.js"
   },
-  "prisma": {
-    "seed": "node prisma/seed.js"
-  },
   "dependencies": {
     "@prisma/client": "^6.19.3",
     "clsx": "^2.1.1",
